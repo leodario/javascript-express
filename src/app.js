@@ -9,16 +9,10 @@ conexao.on("error", (erro) => {
 });
 
 conexao.once("open", () => {
-  console.log("Conexao com o banco feita com suecesso");
+  console.log("Conexao com o banco feita com sucesso");
 })
 
 const app = express();
 routes(app)
-
-app.delete('/livros/:id', (req, res) => {
-  const index = buscaLivro(req.params.id);
-  livros.splice(index, 1);
-  res.status(200).send('Livro removido com sucesso.');
-});
 
 export default app;
